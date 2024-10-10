@@ -17,13 +17,14 @@ source venv/bin/activate
 Install the required packages:
 ``` bash
 pip install -r requirements.txt
+cp .env.example .env
 ```
 
 3. Initialize the database
-Before running the service, initialize the SQLite database:
+Before running the service, initialize the SQLite or Postgresql database with settings .env:
 
 ``` bash
-python -c "from app.database import init_db; init_db()"
+DATABASE_URL=postgresql://postgres:postgres@localhost/alpino
 ```
 
 4. Run the FastAPI Application
@@ -45,7 +46,7 @@ Run the Docker container:
 docker run -d -p 8000:8000 fastapi-cache-service
 ```
 
-7. Testing
+6. Testing
 To run the unit tests, install pytest:
 ```bash
 pip install pytest
@@ -55,11 +56,4 @@ Then, run the tests:
 
 ``` bash
 pytest
-```
-
-9. Database Configuration
-The project is configured to use SQLite by default. If you wish to use PostgreSQL, modify the DATABASE_URL in app/database.py:
-
-```python
-DATABASE_URL = "postgresql://user:password@localhost/dbname"
 ```
