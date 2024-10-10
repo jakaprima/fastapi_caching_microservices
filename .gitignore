@@ -1,0 +1,23 @@
+venv
+venv_alpino
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Cache files
+.cache/
+
+# Pytest cache
+.pytest_cache/
+
+# Docker-related
+*.env
+docker-compose.override.yml
